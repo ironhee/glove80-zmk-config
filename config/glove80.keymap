@@ -12,6 +12,7 @@
 #define MAGIC 2
 
 // Helpers
+#define WRAP_QUOTE(X) #X
 #define IRONHEE_MORP_SHIFT(NAME, BINDING_BASE, BINDING_MORP) \
     NAME: NAME { \
         compatible = "zmk,behavior-mod-morph"; \
