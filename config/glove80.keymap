@@ -137,14 +137,14 @@
         IRONHEE_COMBO(at,         L5_3 L5_2, &m_at)
         IRONHEE_COMBO(grave, L5_4      L5_2, &m_grave)
         // Right Hand Combos
-        IRONHEE_COMBO(lpar,  R3_4 R3_3     , &m_lpar)
-        IRONHEE_COMBO(rpar,       R3_3 R3_2, &m_rpar)
-        IRONHEE_COMBO(pipe,  R3_4      R3_2, &m_pipe)
-        IRONHEE_COMBO(lang,  R4_4 R4_3     , &rht LS(LCTRL) LANG1)
-        IRONHEE_COMBO(caps,       R4_3 R4_2, &rht LA(LCTRL) CAPS)
-        IRONHEE_COMBO(lbkt,  R5_4 R5_3     , &m_lbkt)
-        IRONHEE_COMBO(rbkt,       R5_3 R5_2, &m_rbkt)
-        IRONHEE_COMBO(tilde, R5_4      R5_2, &m_tilde)
+        IRONHEE_COMBO(lpar,  R3_2 R3_3     , &m_lpar)
+        IRONHEE_COMBO(rpar,       R3_3 R3_4, &m_rpar)
+        IRONHEE_COMBO(pipe,  R3_2      R3_4, &m_pipe)
+        IRONHEE_COMBO(lang,  R4_2 R4_3     , &rht LS(LCTRL) LANG1)
+        IRONHEE_COMBO(caps,       R4_3 R4_4, &rht LA(LCTRL) CAPS)
+        IRONHEE_COMBO(lbkt,  R5_2 R5_3     , &m_lbkt)
+        IRONHEE_COMBO(rbkt,       R5_3 R5_4, &m_rbkt)
+        IRONHEE_COMBO(tilde, R5_2      R5_4, &m_tilde)
     };
 
     keymap {
@@ -154,9 +154,9 @@
             bindings = <
             &kp N1         &kp N2      &kp N3      &kp N4       &kp N5                                                          /* */                                                 &kp N6       &kp N7       &kp N8      &kp N9         &kp N0
             &kp F1         &kp F2      &kp F3      &kp F4       &kp F5       &kp F6                                             /* */                                         &kp F7  &kp F8       &kp F9       &kp F10     &kp F11        &kp F12
-            &kp C_VOL_DN   &kp Q       &kp W       &kp E        &kp R        &kp T                                              /* */                                         &kp Y   &kp U        &kp I        &kp O       &kp P          &kp PSCRN
+            &kp C_VOL_UP   &kp Q       &kp W       &kp E        &kp R        &kp T                                              /* */                                         &kp Y   &kp U        &kp I        &kp O       &kp P          &kp PSCRN
             &kp C_MUTE     &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                              /* */                                         &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS &kp SCROLLLOCK
-            &kp C_VOL_UP   &kp Z       &kp X       &kp C        &kp V        &kp B &kp EQUAL         &kp MINUS        &kp GRAVE /* */ &kp BSLH &kp LBKT       &kp RBKT        &kp N   &kp M        &m_comma     &m_dot      &m_qmark       &kp PAUSE_BREAK
+            &kp C_VOL_DN   &kp Z       &kp X       &kp C        &kp V        &kp B &kp EQUAL         &kp MINUS        &kp GRAVE /* */ &kp BSLH &kp LBKT       &kp RBKT        &kp N   &kp M        &m_comma     &m_dot      &m_qmark       &kp PAUSE_BREAK
             &magic MAGIC 0 &kp PG_UP   &kp UP     &kp DOWN      &kp PG_DN          &tht LSHFT RETURN &tht LCTRL SPACE &kp TAB   /* */ &kp ESC  &lt LOWER BSPC &tht LSHFT DEL          &kp HOME     &kp LEFT     &kp RIGHT   &kp END        &none
             >;
         };
