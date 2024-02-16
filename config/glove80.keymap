@@ -157,7 +157,7 @@
             &kp C_VOL_UP   &kp Q       &kp W       &kp E        &kp R        &kp T                                              /* */                                         &kp Y   &kp U        &kp I        &kp O       &kp P          &kp PSCRN
             &kp C_MUTE     &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                              /* */                                         &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS &kp SCROLLLOCK
             &kp C_VOL_DN   &kp Z       &kp X       &kp C        &kp V        &kp B &kp EQUAL         &kp MINUS        &kp GRAVE /* */ &kp BSLH &kp LBKT       &kp RBKT        &kp N   &kp M        &m_comma     &m_dot      &m_qmark       &kp PAUSE_BREAK
-            &magic MAGIC 0 &kp PG_UP   &kp UP     &kp DOWN      &kp PG_DN          &tht LSHFT RETURN &tht LCTRL SPACE &kp TAB   /* */ &kp ESC  &lt LOWER BSPC &tht LSHFT DEL          &kp HOME     &kp LEFT     &kp RIGHT   &kp END        &none
+            &magic MAGIC 0 &kp PG_UP   &kp UP     &kp DOWN      &kp PG_DN          &tht LSHFT RETURN &tht LCTRL SPACE &kp TAB   /* */ &kp ESC  &lt LOWER BSPC &tht LSHFT DEL          &kp HOME     &kp LEFT     &kp RIGHT   &kp END        &kp LCMD
             >;
         };
 
