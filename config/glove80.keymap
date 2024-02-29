@@ -11,8 +11,8 @@
 // layers
 #define DEFT 0
 #define NUMB 1
-#define MOUS 1
-#define MAGI 2
+#define MOUS 2
+#define MAGI 3
 
 // Helpers
 #define WRAP_QUOTE(X) #X
