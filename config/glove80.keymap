@@ -163,9 +163,9 @@
             bindings = <
             &trans &trans   &trans   &trans    &trans                                /* */                                   &trans         &trans         &trans          &trans &trans
             &trans &trans   &trans   &trans    &trans    &trans                      /* */                            &trans &trans         &trans         &trans          &trans &trans
-            &trans &trans   &trans   &trans    &trans    &trans                      /* */                            &trans &trans         &mmv MOVE_UP   &trans          &trans &trans
+            &trans &trans   &trans   &trans    &trans    &trans                      /* */                            &trans &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &trans &trans
             &trans &kp LCMD &kp LALT &kp LCTRL &kp LSHFT &trans                      /* */                            &trans &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &trans
-            &trans &trans   &trans   &trans    &trans    &trans &trans &trans &trans /* */ &mkp MB5 &mkp MB4 &trans   &trans &trans         &trans         &trans          &trans &trans
+            &trans &trans   &trans   &trans    &trans    &trans &trans &trans &trans /* */ &mkp MB5 &mkp MB4 &trans   &trans &msc SCRL_LEFT &trans         &msc SCRL_RIGHT &trans &trans
             &trans &trans   &trans   &trans    &trans           &trans &trans &trans /* */ &mkp MB3 &mkp MB2 &mkp MB1        &trans         &trans         &trans          &trans &trans
             >;
         };
