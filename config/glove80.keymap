@@ -128,6 +128,8 @@
         IRONHEE_COMBO(bslh,  L5_4 L5_3     , &m_bslh)
         IRONHEE_COMBO(at,         L5_3 L5_2, &m_at)
         IRONHEE_COMBO(grave, L5_4      L5_2, &m_grave)
+        IRONHEE_COMBO(mb4,   L6_4 L6_3     , &mkp MB4)
+        IRONHEE_COMBO(mb5,        L6_3 L6_2, &mkp MB5)
         // Right Hand Combos
         IRONHEE_COMBO(lpar,  R3_2 R3_3     , &m_lpar)
         IRONHEE_COMBO(rpar,       R3_3 R3_4, &m_rpar)
