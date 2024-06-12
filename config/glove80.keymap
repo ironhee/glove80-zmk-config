@@ -124,7 +124,7 @@
         IRONHEE_COMBO(equal, L3_4      L3_2, &m_equal)
         IRONHEE_COMBO(tab,   L4_4 L4_3     , &lht LA(LCTRL) TAB)
         IRONHEE_COMBO(bspc,       L4_3 L4_2, &lht LS(LCTRL) BSPC)
-        IRONHEE_COMBO(esc,   L4_4      L4_2, &lht LA(LSHFT) DEL)
+        IRONHEE_COMBO(esc,   L4_4      L4_2, &lht LA(LSHFT) ESC)
         IRONHEE_COMBO(bslh,  L5_4 L5_3     , &m_bslh)
         IRONHEE_COMBO(at,         L5_3 L5_2, &m_at)
         IRONHEE_COMBO(grave, L5_4      L5_2, &m_grave)
