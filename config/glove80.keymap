@@ -9,7 +9,8 @@
 // layers
 #define DEFT 0
 #define NUMB 1
-#define MAGI 2
+#define FUNC 2
+#define MAGI 3
 
 // Helpers
 #define WRAP_QUOTE(X) #X
@@ -136,12 +137,12 @@
 
         deft_layer {
             bindings = <
-            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                               /* */                                               &kp F6       &kp F7       &kp F8      &kp F9         &kp F10
-            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                  /* */                                       &kp N6  &kp N7       &kp N8       &kp N9      &kp N0         &kp F12
-            &kp GRAVE     &kp Q       &kp W       &kp E        &kp R        &kp T                                   /* */                                       &kp Y   &kp U        &kp I        &kp O       &kp P          &kp BSLH
-            &kp TAB       &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                   /* */                                       &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD SEMI &kp APOS
-            &kp ESC       &kp Z       &kp X       &kp C        &kp V        &kp B &kp LSHFT      &kp LCTRL &kp LALT /* */ &kp PG_UP &kp HOME        &kp END     &kp N   &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp PSCRN
-            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &tht LCTRL RET &kp SPACE &kp LCMD /* */ &kp PG_DN &tht LSHFT BSPC &lt NUMB DEL        &kp MINUS    &kp EQUAL    &kp LBKT    &kp RBKT       &kp PAUSE_BREAK
+            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                             /* */                                               &kp F6       &kp F7       &kp F8      &kp F9         &kp F10
+            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                /* */                                       &kp N6  &kp N7       &kp N8       &kp N9      &kp N0         &kp F12
+            &kp GRAVE     &kp Q       &kp W       &kp E        &kp R        &kp T                                 /* */                                       &kp Y   &kp U        &kp I        &kp O       &kp P          &kp BSLH
+            &kp TAB       &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                 /* */                                       &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD SEMI &kp APOS
+            &kp ESC       &kp Z       &kp X       &kp C        &kp V        &kp B &kp LSHFT    &kp LCTRL &kp LALT /* */ &kp LALT &kp LCTRL       &kp LSHFT    &kp N   &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp HOME
+            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt FUNC RET &kp SPACE &kp LCMD /* */ &kp LCMD &tht LSHFT BSPC &lt NUMB DEL         &kp MINUS    &kp EQUAL    &kp LBKT    &kp RBKT       &kp END
             >;
         };
 
@@ -153,6 +154,17 @@
             &trans &kp N0 &kp N4 &kp N5 &kp N6 &trans                      /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
             &trans &kp N0 &kp N1 &kp N2 &kp N3 &trans &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &trans   &trans
             &trans &trans &trans &trans &trans        &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
+            >;
+        };
+
+        func_layer {
+            bindings = <
+            &trans &trans          &trans     &trans   &trans                                            /* */                             &trans    &trans    &trans   &trans   &trans
+            &trans &trans          &kp F10    &kp F11  &kp F12    &trans                                 /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp PSCRN       &kp F7     &kp F8   &kp F9     &kp C_VOL_UP                           /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp SLCK        &kp F4     &kp F5   &kp F6     &kp C_MUTE                             /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
+            &trans &kp PAUSE_BREAK &kp F1     &kp F2   &kp F3     &kp C_VOLUME_DOWN &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &trans   &trans
+            &trans &trans          &kp C_PREV &kp C_PP &kp C_NEXT                   &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
             >;
         };
 
