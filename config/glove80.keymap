@@ -8,9 +8,10 @@
 
 // layers
 #define DEFT 0
-#define NUMB 1
-#define FUNC 2
-#define MAGI 3
+#define NAVI 1
+#define NUMB 2
+#define FUNC 3
+#define MAGI 4
 
 // Helpers
 #define WRAP_QUOTE(X) #X
@@ -104,6 +105,8 @@
         IRONHEE_MACRO(bt_1, <&out OUT_BLE>, <&bt BT_SEL 1>)
         IRONHEE_MACRO(bt_2, <&out OUT_BLE>, <&bt BT_SEL 2>)
         IRONHEE_MACRO(bt_3, <&out OUT_BLE>, <&bt BT_SEL 3>)
+        IRONHEE_MACRO(wordpv, <&macro_press &kp LCTRL>, <&macro_tap &kp LEFT>, <&macro_release &kp LCTRL>)
+        IRONHEE_MACRO(wordnx, <&macro_press &kp LCTRL>, <&macro_tap &kp RIGHT>, <&macro_release &kp LCTRL>)
     };
 
     combos {
@@ -134,12 +137,23 @@
 
         deft_layer {
             bindings = <
-            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                             /* */                                              &kp F6       &kp F7       &kp F8      &kp F9         &kp F10
-            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                /* */                                      &kp N6  &kp N7       &kp N8       &kp N9      &kp N0         &kp F12
-            &kp GRAVE     &kp Q       &kp W       &kp E        &kp R        &kp T                                 /* */                                      &kp Y   &kp U        &kp I        &kp O       &kp P          &kp BSLH
-            &kp TAB       &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                 /* */                                      &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD SEMI &kp APOS
-            &kp ESC       &kp Z       &kp X       &kp C        &kp V        &kp B &kp LSHFT    &kp LCTRL &kp LALT /* */ &kp LALT &kp LCTRL      &kp LSHFT    &kp N   &kp M        &kp COMMA    &kp DOT     &kp FSLH       &kp HOME
-            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt FUNC RET &kp SPACE &kp LCMD /* */ &kp LCMD &mt LSHFT BSPC &lt NUMB DEL         &kp MINUS    &kp EQUAL    &kp LBKT    &kp RBKT       &kp END
+            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                  /* */                                              &kp F6       &kp F7       &kp F8      &kp F9         &kp F10
+            &m_grave      &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                      &kp N6  &kp N7       &kp N8       &kp N9      &kp N0         &m_bslh
+            &m_plus       &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                      &kp Y   &kp U        &kp I        &kp O       &kp P          &m_pipe
+            &m_equal      &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                      /* */                                      &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS &m_at
+            &m_minus      &kp Z       &kp X       &kp C        &kp V        &kp B &kp LSHFT    &kp LCTRL      &kp LALT /* */ &kp LALT &kp LCTRL      &kp LSHFT    &kp N   &kp M        &m_comma     &m_dot      &m_qmark       &m_tilde
+            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt FUNC RET &lt NAVI SPACE &kp LCMD /* */ &kp LCMD &mt LSHFT BSPC &lt NUMB DEL         &m_lbkt      &m_lpar      &m_rpar     &m_rbkt        &kp LANG1
+            >;
+        };
+
+        navi_layer {
+            bindings = <
+            &trans &trans    &trans    &trans    &trans                                /* */                             &trans   &trans   &trans    &trans &trans
+            &trans &trans    &trans    &trans    &trans    &trans                      /* */                      &trans &trans   &trans   &trans    &trans &trans
+            &trans &trans    &trans    &trans    &trans    &trans                      /* */                      &trans &wordpv  &kp UP   &wordnx   &trans &trans
+            &trans &kp LCMD &kp LALT   &kp LCTRL &kp LSHFT &trans                      /* */                      &trans &kp LEFT &kp DOWN &kp RIGHT &trans &trans
+            &trans &trans    &trans    &trans    &trans    &trans &trans &trans &trans /* */ &trans &trans &trans &trans &kp HOME &trans   &kp END   &trans &trans
+            &trans &trans    &trans    &trans    &trans    &trans &trans &trans &trans /* */ &trans &trans &trans        &trans   &trans   &trans    &trans &trans
             >;
         };
 
