@@ -9,9 +9,10 @@
 // layers
 #define DEFT 0
 #define NAVI 1
-#define NUMB 2
-#define FUNC 3
-#define MAGI 4
+#define SYMB 2
+#define NUMB 3
+#define FUNC 4
+#define MAGI 5
 
 // Helpers
 #define WRAP_QUOTE(X) #X
@@ -90,21 +91,9 @@
             bindings = <&kp>, <&kp>;
         };
         // Morp Shift
-        IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp SEMI)      // ,;
-        IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp COLON)     // .:
-        IRONHEE_MORP_SHIFT(m_qmark, &kp QMARK, &kp EXCL)      // ?!
-        IRONHEE_MORP_SHIFT(m_lpar,  &kp LPAR,  &kp LT)        // (<
-        IRONHEE_MORP_SHIFT(m_rpar,  &kp RPAR,  &kp GT)        // )>
-        IRONHEE_MORP_SHIFT(m_lbkt,  &kp LBKT,  &kp LBRC)      // [{
-        IRONHEE_MORP_SHIFT(m_rbkt,  &kp RBKT,  &kp RBRC)      // ]}
-        IRONHEE_MORP_SHIFT(m_plus,  &kp PLUS,  &kp STAR)      // +*
-        IRONHEE_MORP_SHIFT(m_minus, &kp MINUS, &kp FSLH)      // -/
-        IRONHEE_MORP_SHIFT(m_equal, &kp EQUAL, &kp UNDER)     // =_
-        IRONHEE_MORP_SHIFT(m_pipe,  &kp PIPE,  &kp AMPS)      // |&
-        IRONHEE_MORP_SHIFT(m_at,    &kp AT,    &kp PRCNT)     // @%
-        IRONHEE_MORP_SHIFT(m_tilde, &kp TILDE, &kp DLLR)      // ~$
-        IRONHEE_MORP_SHIFT(m_grave, &kp GRAVE, &kp CARET)     // `^
-        IRONHEE_MORP_SHIFT(m_bslh,  &kp BSLH,  &kp HASH)      // \#
+        IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp QMARK)
+        IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp EXCL)
+        IRONHEE_MORP_SHIFT(m_flsh,  &kp FSLH,  &kp BSLH)
     };
 
     macros {
@@ -118,24 +107,12 @@
     combos {
         compatible = "zmk,combos";
         // Left Hand Combo
-        IRONHEE_COMBO(minus, L3_4 L3_3     , &m_minus)
-        IRONHEE_COMBO(plus,       L3_3 L3_2, &m_plus)
-        IRONHEE_COMBO(equal, L3_4      L3_2, &m_equal)
         IRONHEE_COMBO(tab,   L4_4 L4_3     , &lht LA(LCTRL) TAB)
         IRONHEE_COMBO(bspc,       L4_3 L4_2, &lht LS(LCTRL) BSPC)
         IRONHEE_COMBO(esc,   L4_4      L4_2, &lht LA(LSHFT) ESC)
-        IRONHEE_COMBO(bslh,  L5_4 L5_3     , &m_bslh)
-        IRONHEE_COMBO(at,         L5_3 L5_2, &m_at)
-        IRONHEE_COMBO(grave, L5_4      L5_2, &m_grave)
         // Right Hand Combos
-        IRONHEE_COMBO(lpar,  R3_2 R3_3     , &m_lpar)
-        IRONHEE_COMBO(rpar,       R3_3 R3_4, &m_rpar)
-        IRONHEE_COMBO(pipe,  R3_2      R3_4, &m_pipe)
         IRONHEE_COMBO(lang,  R4_2 R4_3     , &rht LS(LCTRL) LANG1)
         IRONHEE_COMBO(caps,       R4_3 R4_4, &rht LA(LCTRL) CAPS)
-        IRONHEE_COMBO(lbkt,  R5_2 R5_3     , &m_lbkt)
-        IRONHEE_COMBO(rbkt,       R5_3 R5_4, &m_rbkt)
-        IRONHEE_COMBO(tilde, R5_2      R5_4, &m_tilde)
     };
 
     keymap {
@@ -143,23 +120,34 @@
 
         deft_layer {
             bindings = <
-            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                  /* */                                               &kp F6       &kp F7       &kp F8      &kp F9         &kp F10
-            &m_grave      &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                       &kp N6  &kp N7       &kp N8       &kp N9      &kp N0         &m_bslh
-            &m_plus       &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                       &kp Y   &kp U        &kp I        &kp O       &kp P          &m_pipe
-            &m_equal      &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                      /* */                                       &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS &m_at
-            &m_minus      &kp Z       &kp X       &kp C        &kp V        &kp B &sk LSHFT    &sk LCTRL      &sk LALT /* */ &sk LALT &sk LCTRL       &sk LSHFT    &kp N   &kp M        &m_comma     &m_dot      &m_qmark       &m_tilde
-            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt FUNC RET &lt NAVI SPACE &sk LCMD /* */ &sk LCMD &tht LSHFT BSPC &lt NUMB DEL         &m_lbkt      &m_lpar      &m_rpar     &m_rbkt        &kp LANG1
+            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                  /* */                                               &kp F6       &kp F7       &kp F8       &kp F9         &kp F10
+            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                       &kp N6  &kp N7       &kp N8       &kp N9       &kp N0         &kp F12
+            &kp GRAVE     &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                       &kp Y   &kp U        &kp I        &kp O        &kp P          &kp AT
+            &kp UNDER     &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                      /* */                                       &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L  &rht LCMD APOS &kp SEMI
+            &kp EQUAL     &kp Z       &kp X       &kp C        &lt SYMB V   &kp B &sk LSHFT    &sk LCTRL      &sk LALT /* */ &sk LALT &sk LCTRL       &sk LSHFT    &kp N   &lt SYMB M   &m_comma     &m_dot       &m_flsh        &kp HASH
+            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt FUNC RET &lt NAVI SPACE &sk LCMD /* */ &sk LCMD &tht LSHFT BSPC &lt NUMB DEL         &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &kp C_PP       &kp PSCRN
             >;
         };
 
         navi_layer {
             bindings = <
-            &trans &trans           &trans          &trans        &trans                                        /* */                             &trans       &trans     &trans       &trans        &trans
-            &trans &trans           &trans          &trans        &trans            &trans                      /* */                      &trans &trans       &trans     &trans       &trans        &trans
-            &trans &trans           &trans          &trans        &trans            &trans                      /* */                      &trans &kp HOME     &kp PG_UP  &kp PG_DN    &kp END       &trans
-            &trans &kp LCMD         &kp LALT        &kp LCTRL     &kp LSHFT         &trans                      /* */                      &trans &kp LEFT     &kp UP     &kp DOWN     &kp RIGHT     &trans
-            &trans &kp LG(LC(LEFT)) &kp LC(LA(TAB)) &kp LG(TAB)   &kp LG(LC(RIGHT)) &trans &trans &trans &trans /* */ &trans &trans &trans &trans &kp LC(LEFT) &kp LC(UP) &kp LC(DOWN) &kp LC(RIGHT) &trans
-            &trans &kp LC(PG_UP)    &kp LA(LEFT)    &kp LA(RIGHT) &kp LC(PG_DN)            &trans &trans &trans /* */ &trans &trans &trans        &trans       &trans     &trans       &trans        &trans
+            &trans &trans           &trans          &trans        &trans                                        /* */                               &trans       &trans   &trans        &trans  &trans
+            &trans &trans           &trans          &trans        &trans            &trans                      /* */                      &trans   &trans       &trans   &trans        &trans  &trans
+            &trans &trans           &trans          &trans        &trans            &trans                      /* */                      &trans   &kp LC(LEFT) &kp UP   &kp LC(RIGHT) &trans  &trans
+            &trans &kp LCMD         &kp LALT        &kp LCTRL     &kp LSHFT         &trans                      /* */                      &kp HOME &kp LEFT     &kp DOWN &kp RIGHT     &kp END &trans
+            &trans &kp LG(LC(LEFT)) &kp LC(LA(TAB)) &kp LG(TAB)   &kp LG(LC(RIGHT)) &trans &trans &trans &trans /* */ &trans &trans &trans &trans   &trans       &trans   &trans        &trans  &trans
+            &trans &kp LC(PG_UP)    &kp LA(LEFT)    &kp LA(RIGHT) &kp LC(PG_DN)            &trans &trans &trans /* */ &trans &trans &trans          &trans       &trans   &trans        &trans  &trans
+            >;
+        };
+
+        symb_layer {
+            bindings = <
+            &trans &trans &trans    &trans   &trans                                /* */                                &trans    &trans   &trans   &trans   &trans
+            &trans &trans &trans    &trans   &trans    &trans                      /* */                      &trans    &trans    &trans   &trans   &trans   &trans
+            &trans &trans &kp LT    &kp GT   &kp CARET &trans                      /* */                      &trans    &kp GRAVE &kp LBKT &kp RBKT &kp DLLR &trans
+            &trans &trans &kp MINUS &kp PLUS &kp EQUAL &trans                      /* */                      &kp AMPS  &kp UNDER &kp LPAR &kp RPAR &kp AT   &trans
+            &trans &trans &kp FSLH  &kp STAR &kp PRCNT &trans &trans &trans &trans /* */ &trans &trans &trans &kp PIPE  &kp TILDE &kp LBRC &kp RBRC &kp HASH &trans
+            &trans &trans &trans    &trans   &trans           &trans &trans &trans /* */ &trans &trans &trans           &trans    &trans   &trans   &trans   &trans
             >;
         };
 
@@ -176,12 +164,12 @@
 
         func_layer {
             bindings = <
-            &trans &trans          &trans     &trans   &trans                                            /* */                             &trans    &trans    &trans   &trans   &trans
-            &trans &trans          &kp F10    &kp F11  &kp F12    &trans                                 /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp PSCRN       &kp F7     &kp F8   &kp F9     &kp C_VOL_UP                           /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp SLCK        &kp F4     &kp F5   &kp F6     &kp C_MUTE                             /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
-            &trans &kp PAUSE_BREAK &kp F1     &kp F2   &kp F3     &kp C_VOLUME_DOWN &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans          &kp C_PREV &kp C_PP &kp C_NEXT                   &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
+            &trans &trans          &trans     &trans   &trans                                       /* */                             &trans    &trans    &trans   &trans   &trans
+            &trans &trans          &kp F10    &kp F11  &kp F12    &trans                            /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp PSCRN       &kp F7     &kp F8   &kp F9     &kp C_VOL_UP                      /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp SLCK        &kp F4     &kp F5   &kp F6     &kp C_MUTE                        /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
+            &trans &kp PAUSE_BREAK &kp F1     &kp F2   &kp F3     &kp C_VOL_DN &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &trans   &trans
+            &trans &trans          &kp C_PREV &kp C_PP &kp C_NEXT              &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
             >;
         };
 
