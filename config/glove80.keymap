@@ -146,12 +146,12 @@
 
         navi_layer {
             bindings = <
-            &trans &trans          &trans           &trans      &trans                                        /* */                             &trans       &trans     &trans       &trans        &trans
-            &trans &trans          &trans           &trans      &trans            &trans                      /* */                      &trans &trans       &trans     &trans       &trans        &trans
-            &trans &trans          &trans           &trans      &trans            &trans                      /* */                      &trans &kp HOME     &kp PG_UP  &kp PG_DN    &kp END       &trans
-            &trans &kp LCMD        &kp LALT         &kp LCTRL   &kp LSHFT         &trans                      /* */                      &trans &kp LEFT     &kp UP     &kp DOWN     &kp RIGHT     &trans
-            &trans &kp LC(LA(TAB)) &kp LG(LC(LEFT)) &kp LG(TAB) &kp LG(LC(RIGHT)) &trans &trans &trans &trans /* */ &trans &trans &trans &trans &kp LC(LEFT) &kp LC(UP) &kp LC(DOWN) &kp LC(RIGHT) &trans
-            &trans &trans          &trans           &trans      &trans                   &trans &trans &trans /* */ &trans &trans &trans        &trans       &trans     &trans       &trans        &trans
+            &trans &trans           &trans          &trans        &trans                                        /* */                             &trans       &trans     &trans       &trans        &trans
+            &trans &trans           &trans          &trans        &trans            &trans                      /* */                      &trans &trans       &trans     &trans       &trans        &trans
+            &trans &trans           &trans          &trans        &trans            &trans                      /* */                      &trans &kp HOME     &kp PG_UP  &kp PG_DN    &kp END       &trans
+            &trans &kp LCMD         &kp LALT        &kp LCTRL     &kp LSHFT         &trans                      /* */                      &trans &kp LEFT     &kp UP     &kp DOWN     &kp RIGHT     &trans
+            &trans &kp LG(LC(LEFT)) &kp LC(LA(TAB)) &kp LG(TAB)   &kp LG(LC(RIGHT)) &trans &trans &trans &trans /* */ &trans &trans &trans &trans &kp LC(LEFT) &kp LC(UP) &kp LC(DOWN) &kp LC(RIGHT) &trans
+            &trans &kp LC(PG_UP)    &kp LA(LEFT)    &kp LA(RIGHT) &kp LC(PG_DN)            &trans &trans &trans /* */ &trans &trans &trans        &trans       &trans     &trans       &trans        &trans
             >;
         };
 
