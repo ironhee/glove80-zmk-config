@@ -39,6 +39,11 @@
         bindings = <BINDINGS>; \
     };
 
+&sk {
+    release-after-ms = <1000>;
+    quick-release;
+};
+
 / {
     behaviors {
         magic: magic_hold_tap {
@@ -142,8 +147,8 @@
             &m_grave      &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                       &kp N6  &kp N7       &kp N8       &kp N9      &kp N0         &m_bslh
             &m_plus       &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                       &kp Y   &kp U        &kp I        &kp O       &kp P          &m_pipe
             &m_equal      &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                      /* */                                       &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS &m_at
-            &m_minus      &kp Z       &kp X       &kp C        &kp V        &kp B &kp LSHFT    &kp LCTRL      &kp LALT /* */ &kp LALT &kp LCTRL       &kp LSHFT    &kp N   &kp M        &m_comma     &m_dot      &m_qmark       &m_tilde
-            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt FUNC RET &lt NAVI SPACE &kp LCMD /* */ &kp LCMD &tht LSHFT BSPC &lt NUMB DEL         &m_lbkt      &m_lpar      &m_rpar     &m_rbkt        &kp LANG1
+            &m_minus      &kp Z       &kp X       &kp C        &kp V        &kp B &sk LSHFT    &sk LCTRL      &sk LALT /* */ &sk LALT &sk LCTRL       &sk LSHFT    &kp N   &kp M        &m_comma     &m_dot      &m_qmark       &m_tilde
+            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt FUNC RET &lt NAVI SPACE &sk LCMD /* */ &sk LCMD &tht LSHFT BSPC &lt NUMB DEL         &m_lbkt      &m_lpar      &m_rpar     &m_rbkt        &kp LANG1
             >;
         };
 
