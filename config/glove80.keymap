@@ -8,9 +8,9 @@
 
 // layers
 #define DEFT 0
-#define NAVI 1
+#define NUMB 1
 #define SYMB 2
-#define NUMB 3
+#define NAVI 3
 #define FUNC 4
 #define MAGI 5
 
@@ -43,6 +43,10 @@
 &sk {
     release-after-ms = <1000>;
     quick-release;
+};
+
+&caps_word {
+    continue-list = <UNDERSCORE MINUS>;
 };
 
 / {
@@ -90,10 +94,18 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
         };
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
         // Morp Shift
         IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp QMARK)
         IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp EXCL)
         IRONHEE_MORP_SHIFT(m_flsh,  &kp FSLH,  &kp BSLH)
+        IRONHEE_MORP_SHIFT(m_eql,   &kp EQUAL, &kp UNDER)
     };
 
     macros {
@@ -110,9 +122,11 @@
         IRONHEE_COMBO(tab,   L4_4 L4_3     , &lht LA(LCTRL) TAB)
         IRONHEE_COMBO(bspc,       L4_3 L4_2, &lht LS(LCTRL) BSPC)
         IRONHEE_COMBO(esc,   L4_4      L4_2, &lht LA(LSHFT) ESC)
+        IRONHEE_COMBO(lsft,       L5_3 L5_2, &sk LSHFT)
         // Right Hand Combos
         IRONHEE_COMBO(lang,  R4_2 R4_3     , &rht LS(LCTRL) LANG1)
         IRONHEE_COMBO(caps,       R4_3 R4_4, &rht LA(LCTRL) CAPS)
+        IRONHEE_COMBO(rsft,  R5_2 R5_3     , &sk LSHFT)
     };
 
     keymap {
@@ -120,23 +134,23 @@
 
         deft_layer {
             bindings = <
-            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                  /* */                                               &kp F6       &kp F7       &kp F8       &kp F9         &kp F10
-            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                       &kp N6  &kp N7       &kp N8       &kp N9       &kp N0         &kp F12
-            &kp ESC       &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                       &kp Y   &kp U        &kp I        &kp O        &kp P          &kp AT
-            &kp BSPC      &lt SYMB A  &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                      /* */                                       &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L  &lt SYMB APOS  &kp SEMI
-            &kp TAB       &lht LCMD Z &kp X       &kp C        &kp V        &kp B &sk LSHFT    &sk LCTRL      &sk LALT /* */ &sk LALT &sk LCTRL       &sk LSHFT    &kp N   &kp M        &kp COMMA    &kp DOT      &rht LCMD FSLH &kp COLON
-            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt FUNC RET &lt NAVI SPACE &sk LCMD /* */ &sk LCMD &tht LSHFT BSPC &lt NUMB DEL         &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &kp C_PP       &kp PSCRN
+            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                  /* */                                             &kp F6       &kp F7       &kp F8       &kp F9         &kp F10
+            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                     &kp N6  &kp N7       &kp N8       &kp N9       &kp N0         &kp F12
+            &kp ESC       &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                     &kp Y   &kp U        &kp I        &kp O        &kp P          &caps_word
+            &kp BSPC      &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                      /* */                                     &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L  &rht LCMD APOS &kp SEMI
+            &kp TAB       &kp Z       &kp X       &kp C        &kp V        &kp B &sk LSHFT      &sk LCTRL    &sk LALT /* */ &sk LALT &sk LCTRL    &sk LSHFT     &kp N   &kp M        &m_comma     &m_dot       &m_flsh        &m_eql
+            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt SYMB SPACE &lt NAVI RET &sk LCMD /* */ &sk LCMD &lt FUNC DEL &lt NUMB BSPC         &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &kp C_PP       &kp LCMD
             >;
         };
 
-        navi_layer {
+        numb_layer {
             bindings = <
-            &trans &trans   &trans           &trans      &trans                                        /* */                               &trans       &trans   &trans        &trans  &trans
-            &trans &trans   &trans           &trans      &trans            &trans                      /* */                      &trans   &trans       &trans   &trans        &trans  &trans
-            &trans &trans   &trans           &trans      &trans            &trans                      /* */                      &trans   &kp LC(LEFT) &kp UP   &kp LC(RIGHT) &trans  &trans
-            &trans &trans   &kp LALT         &kp LCTRL   &kp LSHFT         &trans                      /* */                      &kp HOME &kp LEFT     &kp DOWN &kp RIGHT     &kp END &trans
-            &trans &kp LCMD &kp LG(LC(LEFT)) &kp LG(TAB) &kp LG(LC(RIGHT)) &trans &trans &trans &trans /* */ &trans &trans &trans &trans   &trans       &trans   &trans        &trans  &trans
-            &trans &trans   &kp LA(LEFT)     &kp LC(N4)  &kp LA(RIGHT)            &trans &trans &trans /* */ &trans &trans &trans          &trans       &trans   &trans        &trans  &trans
+            &trans &trans &trans &trans &trans                             /* */                             &trans    &trans    &trans   &trans   &trans
+            &trans &trans &trans &trans &trans &trans                      /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &trans &kp N7 &kp N8 &kp N9 &trans                      /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &trans &kp N4 &kp N5 &kp N6 &trans                      /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
+            &trans &kp N0 &kp N1 &kp N2 &kp N3 &trans &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &trans   &trans
+            &trans &trans &trans &trans &trans        &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
             >;
         };
 
@@ -151,25 +165,25 @@
             >;
         };
 
-        numb_layer {
+        navi_layer {
             bindings = <
-            &trans &trans &trans &trans &trans                             /* */                             &trans    &trans    &trans   &trans   &trans
-            &trans &trans &trans &trans &trans &trans                      /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans &kp N7 &kp N8 &kp N9 &trans                      /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans &kp N4 &kp N5 &kp N6 &trans                      /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &trans   &trans
-            &trans &kp N0 &kp N1 &kp N2 &kp N3 &trans &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &kp LCMD &trans
-            &trans &trans &trans &trans &trans        &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
+            &trans &trans   &trans           &trans      &trans                                        /* */                               &trans       &trans   &trans        &trans  &trans
+            &trans &trans   &trans           &trans      &trans            &trans                      /* */                      &trans   &trans       &trans   &trans        &trans  &trans
+            &trans &trans   &trans           &trans      &trans            &trans                      /* */                      &trans   &kp LC(LEFT) &kp UP   &kp LC(RIGHT) &trans  &trans
+            &trans &kp LCMD &kp LALT         &kp LCTRL   &kp LSHFT         &trans                      /* */                      &kp HOME &kp LEFT     &kp DOWN &kp RIGHT     &kp END &trans
+            &trans &trans   &kp LG(LC(LEFT)) &kp LG(TAB) &kp LG(LC(RIGHT)) &trans &trans &trans &trans /* */ &trans &trans &trans &trans   &trans       &trans   &trans        &trans  &trans
+            &trans &trans   &kp LA(LEFT)     &kp LC(F4)  &kp LA(RIGHT)            &trans &trans &trans /* */ &trans &trans &trans          &trans       &trans   &trans        &trans  &trans
             >;
         };
 
         func_layer {
             bindings = <
-            &trans &trans          &trans     &trans   &trans                                       /* */                             &trans    &trans    &trans   &trans   &trans
-            &trans &trans          &kp F10    &kp F11  &kp F12    &trans                            /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp PSCRN       &kp F7     &kp F8   &kp F9     &kp C_VOL_UP                      /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp SLCK        &kp F4     &kp F5   &kp F6     &kp C_MUTE                        /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &trans   &trans
-            &trans &kp PAUSE_BREAK &kp F1     &kp F2   &kp F3     &kp C_VOL_DN &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &kp LCMD &trans
-            &trans &trans          &kp C_PREV &kp C_PP &kp C_NEXT              &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
+            &trans &trans          &trans  &trans  &trans                                /* */                             &trans    &trans    &trans   &trans   &trans
+            &trans &trans          &trans  &trans  &trans  &trans                        /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp PSCRN       &kp F7  &kp F8  &kp F9  &kp F10                       /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp SLCK        &kp F4  &kp F5  &kp F6  &kp F11                       /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
+            &trans &kp PAUSE_BREAK &kp F1  &kp F2  &kp F3  &kp F12  &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &trans   &trans
+            &trans &trans          &trans  &trans  &trans           &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
             >;
         };
 
