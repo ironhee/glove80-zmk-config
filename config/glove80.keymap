@@ -11,8 +11,7 @@
 #define NUMB 1
 #define SYMB 2
 #define NAVI 3
-#define FUNC 4
-#define MAGI 5
+#define MAGI 4
 
 // Helpers
 #define WRAP_QUOTE(X) #X
@@ -93,10 +92,17 @@
         lt_repeat: lt_repeat {
             compatible = "zmk,behavior-hold-tap";
             label = "lt_repeat";
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
             #binding-cells = <2>;
             bindings = <&mo>, <&key_repeat>;
+        };
+        // Tap Dance
+        td_shift: tap_dance_shift {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk LSHIFT>, <&caps_word>;
         };
         // Morp Shift
         IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp QMARK)
@@ -119,11 +125,9 @@
         IRONHEE_COMBO(tab,   L4_4 L4_3     , &lht LA(LCTRL) TAB)
         IRONHEE_COMBO(bspc,       L4_3 L4_2, &lht LS(LCTRL) BSPC)
         IRONHEE_COMBO(esc,   L4_4      L4_2, &lht LA(LSHFT) ESC)
-        IRONHEE_COMBO(lsft,       L5_3 L5_2, &sk LSHFT)
         // Right Hand Combos
         IRONHEE_COMBO(lang,  R4_2 R4_3     , &rht LS(LCTRL) LANG1)
         IRONHEE_COMBO(caps,       R4_3 R4_4, &rht LA(LCTRL) CAPS)
-        IRONHEE_COMBO(rsft,  R5_2 R5_3     , &sk LSHFT)
     };
 
     keymap {
@@ -135,19 +139,19 @@
             &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                          &kp N6 &kp N7       &kp N8       &kp N9      &kp N0         &kp F12
             &kp ESC       &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                          &kp Y  &kp U        &kp I        &kp O       &kp P          &kp DEL
             &kp BSPC      &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                      /* */                                          &kp H  &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS &kp SEMI
-            &kp TAB       &kp Z       &kp X       &kp C        &kp V        &kp B &sk LSHFT      &sk LCTRL    &sk LALT /* */ &sk LALT &sk LCTRL         &sk LSHFT     &kp N  &kp M        &m_comma     &m_dot      &m_flsh        &m_eql
-            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt SYMB SPACE &lt NAVI RET &sk LCMD /* */ &sk LCMD &lt_repeat FUNC 0 &lt NUMB BSPC        &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE  &kp C_PP       &magic MAGI 0
+            &kp TAB       &kp Z       &kp X       &kp C        &kp V        &kp B &td_shift      &sk LCTRL    &sk LALT /* */ &sk LALT &sk LCTRL         &td_shift     &kp N  &kp M        &m_comma     &m_dot      &m_flsh        &m_eql
+            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt SYMB SPACE &lt NAVI RET &sk LCMD /* */ &sk LCMD &lt_repeat NUMB 0 &lt SYMB BSPC        &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE  &kp C_PP       &magic MAGI 0
             >;
         };
 
         numb_layer {
             bindings = <
-            &trans &trans &trans &trans &trans                             /* */                             &trans    &trans    &trans   &trans   &trans
-            &trans &trans &trans &trans &trans &trans                      /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans &kp N7 &kp N8 &kp N9 &trans                      /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans &kp N4 &kp N5 &kp N6 &trans                      /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
-            &trans &kp N0 &kp N1 &kp N2 &kp N3 &trans &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans &trans &trans &trans        &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
+            &trans &trans      &trans     &trans     &trans                                          /* */                             &trans    &trans    &trans   &trans   &trans
+            &trans &trans      &trans     &trans     &trans     &trans                               /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &lht F12 N0 &lht F7 N7 &lht F8 N8 &lht F9 N9 &kp PSCRN                            /* */                      &trans &trans    &trans    &trans   &trans   &trans
+            &trans &lht F11 N0 &lht F4 N4 &lht F5 N5 &lht F6 N6 &kp SLCK                             /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
+            &trans &lht F10 N0 &lht F1 N1 &lht F2 N2 &lht F3 N3 &kp PAUSE_BREAK &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &trans   &trans
+            &trans &trans      &trans     &trans     &trans                     &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
             >;
         };
 
@@ -170,17 +174,6 @@
             &trans &kp LCMD &kp LALT         &kp LCTRL   &kp LSHFT         &trans                      /* */                      &kp HOME &kp LEFT     &kp DOWN &kp RIGHT     &kp END &trans
             &trans &trans   &kp LG(LC(LEFT)) &kp LG(TAB) &kp LG(LC(RIGHT)) &trans &trans &trans &trans /* */ &trans &trans &trans &trans   &trans       &trans   &trans        &trans  &trans
             &trans &trans   &kp LA(LEFT)     &kp LC(F4)  &kp LA(RIGHT)            &trans &trans &trans /* */ &trans &trans &trans          &trans       &trans   &trans        &trans  &trans
-            >;
-        };
-
-        func_layer {
-            bindings = <
-            &trans &trans          &trans  &trans  &trans                                /* */                             &trans    &trans    &trans   &trans   &trans
-            &trans &trans          &trans  &trans  &trans  &trans                        /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp PSCRN       &kp F7  &kp F8  &kp F9  &kp F12                       /* */                      &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp SLCK        &kp F4  &kp F5  &kp F6  &kp F11                       /* */                      &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
-            &trans &kp PAUSE_BREAK &kp F1  &kp F2  &kp F3  &kp F10  &trans &trans &trans /* */ &trans &trans &trans &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans          &trans  &trans  &trans           &trans &trans &trans /* */ &trans &trans &trans        &trans    &trans    &trans   &trans   &trans
             >;
         };
 
