@@ -45,10 +45,6 @@
     quick-release;
 };
 
-&caps_word {
-    continue-list = <UNDERSCORE MINUS>;
-};
-
 / {
     behaviors {
         magic: magic_hold_tap {
@@ -94,13 +90,6 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
         };
-        mo_tog: behavior_mo_tog {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
-        };
         // Morp Shift
         IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp QMARK)
         IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp EXCL)
@@ -134,12 +123,12 @@
 
         deft_layer {
             bindings = <
-            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                  /* */                                             &kp F6       &kp F7       &kp F8       &kp F9         &kp F10
-            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                     &kp N6  &kp N7       &kp N8       &kp N9       &kp N0         &kp F12
-            &kp ESC       &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                     &kp Y   &kp U        &kp I        &kp O        &kp P          &caps_word
-            &kp BSPC      &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                      /* */                                     &kp H   &rht LSHFT J &rht LCTRL K &rht LALT L  &rht LCMD APOS &kp SEMI
-            &kp TAB       &kp Z       &kp X       &kp C        &kp V        &kp B &sk LSHFT      &sk LCTRL    &sk LALT /* */ &sk LALT &sk LCTRL    &sk LSHFT     &kp N   &kp M        &m_comma     &m_dot       &m_flsh        &m_eql
-            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt SYMB SPACE &lt NAVI RET &sk LCMD /* */ &sk LCMD &lt FUNC DEL &lt NUMB BSPC         &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE   &kp C_PP       &kp LCMD
+            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                  /* */                                            &kp F6       &kp F7       &kp F8      &kp F9         &kp F10
+            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                     &kp N6 &kp N7       &kp N8       &kp N9      &kp N0         &kp F12
+            &kp ESC       &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                     &kp Y  &kp U        &kp I        &kp O       &kp P          &kp DEL
+            &kp BSPC      &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F &kp G                                      /* */                                     &kp H  &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS &kp SEMI
+            &kp TAB       &kp Z       &kp X       &kp C        &kp V        &kp B &sk LSHFT      &sk LCTRL    &sk LALT /* */ &sk LALT &sk LCTRL    &sk LSHFT     &kp N  &kp M        &m_comma     &m_dot      &m_flsh        &m_eql
+            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt SYMB SPACE &lt NAVI RET &sk LCMD /* */ &sk LCMD &lt FUNC DEL &lt NUMB BSPC        &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE  &kp C_PP       &kp LCMD
             >;
         };
 
