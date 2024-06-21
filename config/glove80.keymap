@@ -140,7 +140,7 @@
         IRONHEE_COMBO(lang,  R4_2 R4_3     , &rmt LS(LCTRL) LANG1)
         IRONHEE_COMBO(caps,       R4_3 R4_4, &rmt LA(LCTRL) CAPS)
         // Both Hand Combos
-        IRONHEE_COMBO(func,  LT_4      RT_4, &sl FUNC)
+        IRONHEE_COMBO(func,  LT_4      RT_4, &to FUNC)
     };
 
     keymap {
@@ -159,34 +159,34 @@
 
         navi_layer {
             bindings = <
-            &trans &trans   &trans           &trans      &trans                                           /* */                               &trans       &trans   &trans        &trans  &trans
-            &trans &trans   &trans           &trans      &trans            &trans                         /* */                      &trans   &trans       &trans   &trans        &trans  &trans
-            &trans &trans   &trans           &trans      &trans            &trans                         /* */                      &trans   &kp LC(LEFT) &kp UP   &kp LC(RIGHT) &trans  &trans
-            &trans &kp LCMD &kp LALT         &kp LCTRL   &kp LSHFT         &trans                         /* */                      &kp HOME &kp LEFT     &kp DOWN &kp RIGHT     &kp END &trans
-            &trans &trans   &kp LG(LC(LEFT)) &kp LG(TAB) &kp LG(LC(RIGHT)) &trans &trans    &trans &trans /* */ &trans &trans &trans &trans   &trans       &trans   &trans        &trans  &trans
-            &trans &trans   &kp LA(LEFT)     &kp LC(F4)  &kp LA(RIGHT)            &tog NAVI &trans &trans /* */ &trans &trans &trans          &trans       &trans   &trans        &trans  &trans
+            &trans &trans   &trans           &trans      &trans                                          /* */                               &trans       &trans   &trans        &trans  &trans
+            &trans &trans   &trans           &trans      &trans            &trans                        /* */                      &trans   &trans       &trans   &trans        &trans  &trans
+            &trans &trans   &trans           &trans      &trans            &trans                        /* */                      &trans   &kp LC(LEFT) &kp UP   &kp LC(RIGHT) &trans  &trans
+            &trans &kp LCMD &kp LALT         &kp LCTRL   &kp LSHFT         &trans                        /* */                      &kp HOME &kp LEFT     &kp DOWN &kp RIGHT     &kp END &trans
+            &trans &trans   &kp LG(LC(LEFT)) &kp LG(TAB) &kp LG(LC(RIGHT)) &trans &trans   &trans &trans /* */ &trans &trans &trans &trans   &trans       &trans   &trans        &trans  &trans
+            &trans &trans   &kp LA(LEFT)     &kp LC(F4)  &kp LA(RIGHT)            &to DEFT &trans &trans /* */ &trans &trans &trans          &trans       &trans   &trans        &trans  &trans
             >;
         };
 
         numb_layer {
             bindings = <
-            &trans &trans &trans &trans &trans                                /* */                                &trans    &trans    &trans   &trans   &trans
-            &trans &trans &trans &trans &trans &trans                         /* */                         &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp N0 &kp N7 &kp N8 &kp N9 &kp CARET                      /* */                         &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp N0 &kp N4 &kp N5 &kp N6 &kp PRCNT                      /* */                         &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
-            &trans &kp N0 &kp N1 &kp N2 &kp N3 &kp COLON &trans &trans &trans /* */ &trans &trans &trans    &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans &trans &trans &trans           &trans &trans &trans /* */ &trans &trans &tog NUMB        &trans    &trans    &trans   &trans   &trans
+            &trans &trans &trans &trans &trans                                /* */                               &trans    &trans    &trans   &trans   &trans
+            &trans &trans &trans &trans &trans &trans                         /* */                        &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp N0 &kp N7 &kp N8 &kp N9 &kp CARET                      /* */                        &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp N0 &kp N4 &kp N5 &kp N6 &kp PRCNT                      /* */                        &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
+            &trans &kp N0 &kp N1 &kp N2 &kp N3 &kp COLON &trans &trans &trans /* */ &trans &trans &trans   &trans &trans    &trans    &trans   &trans   &trans
+            &trans &trans &trans &trans &trans           &trans &trans &trans /* */ &trans &trans &to DEFT        &trans    &trans    &trans   &trans   &trans
             >;
         };
 
         func_layer {
             bindings = <
-            &trans &trans  &trans &trans &trans                                         /* */                                &trans    &trans    &trans   &trans   &trans
-            &trans &trans  &trans &trans &trans &trans                                  /* */                         &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN                               /* */                         &trans &trans    &trans    &trans   &trans   &trans
-            &trans &kp F11 &kp F4 &kp F5 &kp F6 &kp SLCK                                /* */                         &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
-            &trans &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK &trans    &trans &trans /* */ &trans &trans &trans    &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans  &trans &trans &trans                 &tog NAVI &trans &trans /* */ &trans &trans &tog NUMB        &trans    &trans    &trans   &trans   &trans
+            &trans &trans  &trans &trans &trans                                        /* */                               &trans    &trans    &trans   &trans   &trans
+            &trans &trans  &trans &trans &trans &trans                                 /* */                        &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN                              /* */                        &trans &trans    &trans    &trans   &trans   &trans
+            &trans &kp F11 &kp F4 &kp F5 &kp F6 &kp SLCK                               /* */                        &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
+            &trans &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK &trans   &trans &trans /* */ &trans &trans &trans   &trans &trans    &trans    &trans   &trans   &trans
+            &trans &trans  &trans &trans &trans                 &to NAVI &trans &trans /* */ &trans &trans &to NUMB       &trans    &trans    &trans   &trans   &trans
             >;
         };
 
