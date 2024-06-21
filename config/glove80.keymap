@@ -140,7 +140,7 @@
         IRONHEE_COMBO(lang,  R4_2 R4_3     , &rmt LS(LCTRL) LANG1)
         IRONHEE_COMBO(caps,       R4_3 R4_4, &rmt LA(LCTRL) CAPS)
         // Both Hand Combos
-        IRONHEE_COMBO(func,  LT_4      RT_4, &to FUNC)
+        IRONHEE_COMBO(func,  LT_4      RT_4, &sl FUNC)
     };
 
     keymap {
