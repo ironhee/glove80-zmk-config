@@ -1,67 +1,5 @@
 # Glove80 zmk keymap
 
-<details>
-<summary>Guide</summary>
-
-
-**Tap**: `A`
-
-```text
-╭─────╮
-│ A   │
-╰─────╯
-```
-
-**Tap**: Enables `NUMB` layer
-
-```text
-╭─────╮
-│→NUMB│
-╰─────╯
-```
-
-**Tap**: `A`, **Hold**: Momentary Enables `NUMB` layer
-
-```text
-╭─────╮
-│ A   │
-╰■NUMB╯
-```
-
-**Tap**: `A`, **Hold**: `Shift`
-
-```text
-╭─────╮
-│ A   │
-╰─Sft─╯
-```
-
-**Tap**: `Shift`,  **Double Tab**: `Caps Word`
-
-```text
-╭──Caps
-│ Sft │
-╰─────╯
-```
-
-**Tap**: `/`, **Shift Tap**: `\`
-
-```text
-╭─────╮
-│ / \ │
-╰─────╯
-```
-
-**Pressed**
-
-```text
-╭─────╮
-│     │
-╰▀▀▀▀▀╯
-```
-
-</details>
-
 ## Keymap
 
 <details open>
@@ -245,3 +183,100 @@
 ```
 
 </details>
+
+## Guides
+
+### Guide - [Keypress](https://zmk.dev/docs/behaviors/key-press)
+
+**Tap**: `A`
+
+```text
+╭─────╮
+│ A   │
+╰─────╯
+```
+
+### Guide - [Morp Shift](https://zmk.dev/docs/behaviors/mod-morph)
+
+**Tap**: `/`
+
+**Shift Tap**: `\`
+
+```text
+╭─────╮
+│ / \ │
+╰─────╯
+```
+
+### Guide: [Mod-Tap](https://zmk.dev/docs/behaviors/mod-tap)
+
+**Tap**: `A`
+
+**Hold**: `Shift`
+
+```text
+╭─────╮
+│ A   │
+╰─Sft─╯
+```
+
+### Guide: [Tap-Dance](https://zmk.dev/docs/behaviors/tap-dance)
+
+**Tap**: `Shift`
+
+**Double Tab**: `Caps Word`
+
+```text
+╭──Caps
+│ Sft │
+╰─────╯
+```
+
+### Guide: [Layer](https://zmk.dev/docs/behaviors/layers)
+
+**Tap**: Enables `NUMB` layer
+
+```text
+╭─────╮
+│→NUMB│
+╰─────╯
+```
+
+**Tap**: disables `NUMB` layer
+
+```text
+╭─────╮
+│←NUMB│
+╰─────╯
+```
+
+**Hold**: Momentary enables `NUMB` layer
+
+```text
+Layers - DEFT
+╭─────╮
+│     │
+╰▀NUMB╯
+```
+
+`NUMB` layer is enabled momentarily while the key is pressed
+
+
+```text
+Layers - NUMB
+╭─────╮
+│     │
+╰▀▀▀▀▀╯
+```
+
+### Guide: [Combo](https://zmk.dev/docs/features/combos)
+
+**Tap `S` + `D`**: `Esc`
+
+**Hold `S` + `D`**: Momentary enables `NUMB` layer
+
+```text
+╭─────╮   ├─────┼─────┼─────┼─────┼─────┼─────┤                             ├─────┼─────┼─────┼─────┼─────┼─────┤
+│ Esc │   │     │ A   │ S   │ D   │ F   │ G   │                             │ H   │ J   │ K   │ L   │ '   │     │
+╰▀NUMB╯   ├─────┼─────┼▀▀▀▀▀┼▀▀▀▀▀┼─────┼─────┤                             ├─────┼─────┼─────┼─────┼─────┼─────┤
+```
