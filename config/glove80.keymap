@@ -8,10 +8,10 @@
 
 // layers
 #define DEFT 0
-#define NUMB 1
-#define SYMB 2
-#define NAVI 3
-#define FUNC 4
+#define NAVI 1
+#define NUMB 2
+#define FUNC 3
+#define SYMB 4
 #define MAGI 5
 
 // Helpers
@@ -186,7 +186,7 @@
             &trans &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN                              /* */                        &trans &trans    &trans    &trans   &trans   &trans
             &trans &kp F11 &kp F4 &kp F5 &kp F6 &kp SLCK                               /* */                        &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD &trans
             &trans &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK &trans   &trans &trans /* */ &trans &trans &trans   &trans &trans    &trans    &trans   &trans   &trans
-            &trans &trans  &trans &trans &trans                 &to NAVI &trans &trans /* */ &trans &trans &to NUMB       &trans    &trans    &trans   &trans   &trans
+            &trans &trans  &trans &trans &trans                 &to NAVI &trans &trans /* */ &trans &trans &to NUMB        &trans    &trans    &trans   &trans   &trans
             >;
         };
 
