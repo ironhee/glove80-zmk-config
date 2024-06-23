@@ -1,5 +1,49 @@
 # Glove80 zmk keymap
 
+```text
+Notation                    │ Description
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┌─────┐                     │
+│ A   │                     │ Tap: A
+└─────┘                     │
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┌─────┐                     │
+│ / \ │                     │ Tap: /, Shift Tap: \
+└─────┘                     │
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┌─────┐                     │
+│     │                     │ Hold: Shift
+└─Sft─┘                     │
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┌──Caps                     │
+│     │                     │ Double Tap: Caps Word
+└─────┘                     │
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┌─────┐                     │
+│→NUMB│                     │ Tap: Enables NUMB layer
+└─────┘                     │
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┌─────┐                     │
+│←NUMB│                     │ Tap: disables NUMB layer
+└─────┘                     │
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┌─────┐                     │
+│     │                     │ Hold: Momentary enables NUMB layer
+└▀NUMB┘                     │
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┌─────┐                     │
+│     │                     │ Layer is enabled momentarily while the key is pressed
+└▀▀▀▀▀┘                     │
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┏━━━━━┓                     │
+┃     ┃                     │ Main typing area
+┗━━━━━┛                     │
+────────────────────────────┼──────────────────────────────────────────────────────────────────
+┌─────┐   ┌─────┐   ┌─────┐ │
+│ A   │ + │ B   │ = │Enter│ │ Tap A and B: Enter
+└─────┘   └─────┘   └─────┘ │
+```
+
 ## Keymap
 
 <details open>
@@ -157,97 +201,3 @@
 ```
 
 </details>
-
-## Guides
-
-### Guide - [Keypress](https://zmk.dev/docs/behaviors/key-press)
-
-**Tap**: `A`
-
-```text
-┌─────┐
-│ A   │
-└─────┘
-```
-
-### Guide - [Morp Shift](https://zmk.dev/docs/behaviors/mod-morph)
-
-**Tap**: `/`
-
-**Shift Tap**: `\`
-
-```text
-┌─────┐
-│ / \ │
-└─────┘
-```
-
-### Guide: [Mod-Tap](https://zmk.dev/docs/behaviors/mod-tap)
-
-**Tap**: `A`
-
-**Hold**: `Shift`
-
-```text
-┌─────┐
-│ A   │
-└─Sft─┘
-```
-
-### Guide: [Tap-Dance](https://zmk.dev/docs/behaviors/tap-dance)
-
-**Tap**: `Shift`
-
-**Double Tab**: `Caps Word`
-
-```text
-┌──Caps
-│ Sft │
-└─────┘
-```
-
-### Guide: [Layer](https://zmk.dev/docs/behaviors/layers)
-
-**Tap**: Enables `NUMB` layer
-
-```text
-┌─────┐
-│→NUMB│
-└─────┘
-```
-
-**Tap**: disables `NUMB` layer
-
-```text
-┌─────┐
-│←NUMB│
-└─────┘
-```
-
-**Hold**: Momentary enables `NUMB` layer
-
-```text
-Layers - DEFT
-┌─────┐
-│     │
-└▀NUMB┘
-```
-
-`NUMB` layer is enabled momentarily while the key is pressed
-
-```text
-Layers - NUMB
-┌─────┐
-│     │
-└▀▀▀▀▀┘
-```
-
-### Guide: [Combo](https://zmk.dev/docs/features/combos)
-
-**Tap `A` + `B`**: `Enter`
-
-```text
-┌─────┐   ┌─────┐   ┌─────┐
-│ A   │ + │ B   │ = │Enter│
-└─────┘   └─────┘   └─────┘
-```
