@@ -140,14 +140,15 @@
     combos {
         compatible = "zmk,combos";
         // Left Hand Combo
-        IRONHEE_COMBO(del,       L4_4 L4_3     , &lmt LA(LCTRL) DEL)
-        IRONHEE_COMBO(bspc,           L4_3 L4_2, &lmt LS(LCTRL) BSPC)
-        IRONHEE_COMBO(esc,       L4_4      L4_2, &lmt LA(LSHFT) ESC)
-        IRONHEE_COMBO(tab,       L5_4 L5_3     , &kp TAB)
-        IRONHEE_COMBO(ret,            L5_3 L5_2, &kp RET)
+        IRONHEE_COMBO(l_tab,       L4_4 L4_3     , &lmt LA(LCTRL) TAB)
+        IRONHEE_COMBO(l_ret,            L4_3 L4_2, &lmt LS(LCTRL) RET)
+        IRONHEE_COMBO(l_esc,       L4_4      L4_2, &lmt LA(LSHFT) ESC)
+        IRONHEE_COMBO(l_del,       L5_4 L5_3     , &kp DEL)
+        IRONHEE_COMBO(l_bspc,           L5_3 L5_2, &kp BSPC)
         // Right Hand Combos
-        IRONHEE_COMBO(lang,      R4_2 R4_3     , &rmt LS(LCTRL) LANG1)
-        IRONHEE_COMBO(caps,           R4_3 R4_4, &rmt LA(LCTRL) CAPS)
+        IRONHEE_COMBO(r_bspc,      R4_2 R4_3     , &rmt LS(LCTRL) BSPC)
+        IRONHEE_COMBO(r_del,            R4_3 R4_4, &rmt LA(LCTRL) DEL)
+        IRONHEE_COMBO(r_lang,      R4_2      R4_4, &rmt LA(LSHFT) LANG1)
     };
 
     keymap {
@@ -157,9 +158,9 @@
             bindings = <
             &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                       /* */                                          &kp F6       &kp F7             &kp F8      &kp F9         &kp F10
             &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                          /* */                                   &kp N6 &kp N7       &kp N8             &kp N9      &kp N0         &kp F12
-            &kp ESC       &kp Q       &kp W       &kp E        &kp R        &kp T                                           /* */                                   &kp Y  &kp U        &kp I              &kp O       &kp P          &kp DEL
-            &kp TAB       &lmt LCMD A &lmt LALT S &lmt LCTRL D &lmt LSHFT F &kp G                                           /* */                                   &kp H  &rmt LSHFT J &rmt LCTRL K       &rmt LALT L &rmt LCMD APOS &kp BSPC
-            &kp BSPC      &kp Z       &kp X       &kp C        &lt SYMB V   &kp B &sk LCTRL      &sk LSHFT         &sk LALT /* */ &sk LALT &sk LSHFT     &sk LCTRL  &kp N  &lt SYMB M   &lt_m_comma NUMB 0 &m_dot      &m_flsh        &kp RET
+            &kp ESC       &kp Q       &kp W       &kp E        &kp R        &kp T                                           /* */                                   &kp Y  &kp U        &kp I              &kp O       &kp P          &kp CAPS
+            &kp RET       &lmt LCMD A &lmt LALT S &lmt LCTRL D &lmt LSHFT F &kp G                                           /* */                                   &kp H  &rmt LSHFT J &rmt LCTRL K       &rmt LALT L &rmt LCMD APOS &kp BSPC
+            &kp TAB       &kp Z       &kp X       &kp C        &lt SYMB V   &kp B &sk LCTRL      &sk LSHFT         &sk LALT /* */ &sk LALT &sk LSHFT     &sk LCTRL  &kp N  &lt SYMB M   &lt_m_comma NUMB 0 &m_dot      &m_flsh        &kp DEL
             &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt NAVI SPACE &lt_repeat FUNC 0 &sk LCMD /* */ &sk LCMD &lt NUMB BSPC &td_shift         &kp C_VOL_DN &kp C_VOL_UP       &kp C_MUTE  &kp C_PP       &magic MAGI 0
             >;
         };
