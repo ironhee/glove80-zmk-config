@@ -127,7 +127,6 @@
         IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp QMARK)
         IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp EXCL)
         IRONHEE_MORP_SHIFT(m_flsh,  &kp FSLH,  &kp BSLH)
-        IRONHEE_MORP_SHIFT(m_eql,   &kp EQUAL, &kp UNDER)
     };
 
     macros {
@@ -141,10 +140,11 @@
     combos {
         compatible = "zmk,combos";
         // Left Hand Combo
-        IRONHEE_COMBO(ret,  L4_5 L4_4          , &lmt LG(LALT)  RET)
-        IRONHEE_COMBO(tab,       L4_4 L4_3     , &lmt LA(LCTRL) TAB)
+        IRONHEE_COMBO(del,       L4_4 L4_3     , &lmt LA(LCTRL) DEL)
         IRONHEE_COMBO(bspc,           L4_3 L4_2, &lmt LS(LCTRL) BSPC)
         IRONHEE_COMBO(esc,       L4_4      L4_2, &lmt LA(LSHFT) ESC)
+        IRONHEE_COMBO(tab,       L5_4 L5_3     , &kp TAB)
+        IRONHEE_COMBO(ret,            L5_3 L5_2, &kp RET)
         // Right Hand Combos
         IRONHEE_COMBO(lang,      R4_2 R4_3     , &rmt LS(LCTRL) LANG1)
         IRONHEE_COMBO(caps,           R4_3 R4_4, &rmt LA(LCTRL) CAPS)
@@ -155,12 +155,12 @@
 
         deft_layer {
             bindings = <
-            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                  /* */                                          &kp F6       &kp F7             &kp F8      &kp F9         &kp F10
-            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                     /* */                                   &kp N6 &kp N7       &kp N8             &kp N9      &kp N0         &kp F12
-            &kp ESC       &kp Q       &kp W       &kp E        &kp R        &kp T                                      /* */                                   &kp Y  &kp U        &kp I              &kp O       &kp P          &kp DEL
-            &kp TAB       &lmt LCMD A &lmt LALT S &lmt LCTRL D &lmt LSHFT F &kp G                                      /* */                                   &kp H  &rmt LSHFT J &rmt LCTRL K       &rmt LALT L &rmt LCMD APOS &kp BSPC
-            &kp BSPC      &kp Z       &kp X       &kp C        &lt SYMB V   &kp B &sk LCTRL      &sk LSHFT    &sk LALT /* */ &sk LALT &sk LSHFT     &sk LCTRL  &kp N  &lt SYMB M   &lt_m_comma NUMB 0 &m_dot      &m_flsh        &kp RET
-            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt NAVI SPACE &lt FUNC RET &sk LCMD /* */ &sk LCMD &lt NUMB BSPC &td_shift         &kp C_VOL_DN &kp C_VOL_UP       &kp C_MUTE  &kp C_PP       &magic MAGI 0
+            &kp F1        &kp F2      &kp F3      &kp F4       &kp F5                                                       /* */                                          &kp F6       &kp F7             &kp F8      &kp F9         &kp F10
+            &kp F11       &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                                          /* */                                   &kp N6 &kp N7       &kp N8             &kp N9      &kp N0         &kp F12
+            &kp ESC       &kp Q       &kp W       &kp E        &kp R        &kp T                                           /* */                                   &kp Y  &kp U        &kp I              &kp O       &kp P          &kp DEL
+            &kp TAB       &lmt LCMD A &lmt LALT S &lmt LCTRL D &lmt LSHFT F &kp G                                           /* */                                   &kp H  &rmt LSHFT J &rmt LCTRL K       &rmt LALT L &rmt LCMD APOS &kp BSPC
+            &kp BSPC      &kp Z       &kp X       &kp C        &lt SYMB V   &kp B &sk LCTRL      &sk LSHFT         &sk LALT /* */ &sk LALT &sk LSHFT     &sk LCTRL  &kp N  &lt SYMB M   &lt_m_comma NUMB 0 &m_dot      &m_flsh        &kp RET
+            &magic MAGI 0 &kp LEFT    &kp UP      &kp DOWN     &kp RIGHT          &lt NAVI SPACE &lt_repeat FUNC 0 &sk LCMD /* */ &sk LCMD &lt NUMB BSPC &td_shift         &kp C_VOL_DN &kp C_VOL_UP       &kp C_MUTE  &kp C_PP       &magic MAGI 0
             >;
         };
 
@@ -199,12 +199,12 @@
 
         symb_layer {
             bindings = <
-            &trans &trans    &trans    &trans   &trans                                   /* */                                &trans    &trans   &trans   &trans    &trans
-            &trans &trans    &trans    &trans   &trans    &trans                         /* */                      &trans    &trans    &trans   &trans   &trans    &trans
-            &trans &trans    &kp LT    &kp GT   &kp AMPS  &kp CARET                      /* */                      &kp DLLR  &kp GRAVE &kp LBKT &kp RBKT &trans    &trans
-            &trans &kp EXCL  &kp MINUS &kp PLUS &kp EQUAL &kp PRCNT                      /* */                      &kp AT    &kp UNDER &kp LPAR &kp RPAR &kp SEMI  &trans
-            &trans &kp QMARK &kp FSLH  &kp STAR &kp PIPE  &kp COLON &trans &trans &trans /* */ &trans &trans &trans &kp HASH  &kp TILDE &kp LBRC &kp RBRC &kp COLON &trans
-            &trans &trans    &trans    &trans   &trans              &trans &trans &trans /* */ &trans &trans &trans           &trans    &trans   &trans   &trans    &trans
+            &trans &trans    &trans    &trans   &trans                                   /* */                               &trans    &trans   &trans   &trans    &trans
+            &trans &trans    &trans    &trans   &trans    &trans                         /* */                      &trans   &trans    &trans   &trans   &trans    &trans
+            &trans &trans    &kp LT    &kp GT   &kp AMPS  &kp CARET                      /* */                      &trans   &kp GRAVE &kp LBKT &kp RBKT &kp BSLH  &trans
+            &trans &kp EXCL  &kp MINUS &kp PLUS &kp EQUAL &kp COLON                      /* */                      &kp AT   &kp UNDER &kp LPAR &kp RPAR &kp SEMI  &trans
+            &trans &kp QMARK &kp FSLH  &kp STAR &kp PIPE  &kp PRCNT &trans &trans &trans /* */ &trans &trans &trans &kp HASH &kp DLLR  &kp LBRC &kp RBRC &kp TILDE &trans
+            &trans &trans    &trans    &trans   &trans              &trans &trans &trans /* */ &trans &trans &trans          &trans    &trans   &trans   &trans    &trans
             >;
         };
 
