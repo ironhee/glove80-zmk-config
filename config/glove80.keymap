@@ -10,9 +10,8 @@
 #define DEFT 0
 #define NAVI 1
 #define NUMB 2
-#define FUNC 3
-#define SYMB 4
-#define MAGI 5
+#define SYMB 3
+#define MAGI 4
 
 // Helpers
 #define WRAP_QUOTE(X) #X
@@ -115,6 +114,11 @@
         IRONHEE_MACRO(scr_cap, <&macro_press &kp LSHFT &kp LCMD>, <&macro_tap &kp N4>, <&macro_release &kp LSHFT &kp LCMD>)
         IRONHEE_MACRO(scr_rec, <&macro_press &kp LSHFT &kp LCMD>, <&macro_tap &kp N5>, <&macro_release &kp LSHFT &kp LCMD>)
         IRONHEE_MACRO(emoji, <&macro_press &kp LCTRL &kp LCMD>, <&macro_tap &kp SPACE>, <&macro_release &kp LCTRL &kp LCMD>)
+        IRONHEE_MACRO(app_l, <&macro_press &kp LCMD>, <&macro_tap &kp TAB>, <&macro_release &kp LCMD>)
+        IRONHEE_MACRO(app_r, <&macro_press &kp LCMD &kp LSHFT>, <&macro_tap &kp TAB>, <&macro_release &kp LCMD &kp LSHFT>)
+        IRONHEE_MACRO(win_l, <&macro_press &kp LCTRL>, <&macro_tap &kp LEFT>, <&macro_release &kp LCTRL>)
+        IRONHEE_MACRO(win_r, <&macro_press &kp LCTRL>, <&macro_tap &kp RIGHT>, <&macro_release &kp LCTRL>)
+        IRONHEE_MACRO(win_u, <&macro_press &kp LCTRL>, <&macro_tap &kp UP>, <&macro_release &kp LCTRL>)
     };
 
     combos {
@@ -135,23 +139,23 @@
 
         deft_layer {
             bindings = <
-            &kp F1        &kp F2      &kp F3       &kp F4      &kp F5                                                    /* */                                       &kp F6       &kp F7             &kp F8      &kp F9          &kp F10
-            &kp F11       &kp N1      &kp N2       &kp N3      &kp N4       &kp N5                                       /* */                                &kp N6 &kp N7       &kp N8             &kp N9      &kp N0          &kp F12
-            &kp GRAVE     &kp Q       &kp W        &kp E       &kp R        &kp T                                        /* */                                &kp Y  &kp U        &kp I              &kp O       &kp P           &emoji
-            &kp EQUAL     &lmt LCTRL A &lmt LALT S &lmt LCMD D &lmt LSHFT F &kp G                                        /* */                                &kp H  &rmt LSHFT J &rmt LCMD K        &rmt LALT L &rmt LCTRL APOS &kp SEMI
-            &kp UNDER     &kp Z       &kp X        &lt FUNC  C &lt SYMB V   &kp B  &sk LCMD       &sk LSHFT    &sk LALT  /* */ &sk LALT  &sk LSHFT &sk LCMD   &kp N  &lt SYMB M   &lt_m_comma NUMB 0 &m_dot      &m_flsh         &kp COLON
-            &magic MAGI 0 &kp LT      &kp LBKT     &kp RBKT    &kp GT              &lt NAVI SPACE &mt LCMD RET &sk LCTRL /* */ &sk LCTRL &kp BSPC  &sk LSHIFT        &kp LBRC     &kp LPAR           &kp RPAR    &kp RBRC        &magic MAGI 0
+            &kp F1        &kp F2      &kp F3       &kp F4      &kp F5                                                      /* */                                          &kp F6       &kp F7             &kp F8      &kp F9          &kp F10
+            &kp F11       &kp N1      &kp N2       &kp N3      &kp N4       &kp N5                                         /* */                                   &kp N6 &kp N7       &kp N8             &kp N9      &kp N0          &kp F12
+            &kp GRAVE     &kp Q       &kp W        &kp E       &kp R        &kp T                                          /* */                                   &kp Y  &kp U        &kp I              &kp O       &kp P           &emoji
+            &kp EQUAL     &lmt LCTRL A &lmt LALT S &lmt LCMD D &lmt LSHFT F &kp G                                          /* */                                   &kp H  &rmt LSHFT J &rmt LCMD K        &rmt LALT L &rmt LCTRL APOS &kp SEMI
+            &kp UNDER     &kp Z       &kp X        &kp C       &lt SYMB V   &kp B  &sk LCMD       &sk LCTRL    &kp C_PAUSE /* */ &kp K_VOL_UP &kp COLON &kp ESC    &kp N  &lt SYMB M   &lt_m_comma NUMB 0 &m_dot      &m_flsh         &kp COLON
+            &magic MAGI 0 &kp LT      &kp LBKT     &kp RBKT    &kp GT              &lt NAVI SPACE &mt LCMD RET &kp C_MUTE  /* */ &kp K_VOL_DN &kp BSPC  &sk LSHIFT        &kp LBRC     &kp LPAR           &kp RPAR    &kp RBRC        &magic MAGI 0
             >;
         };
 
         navi_layer {
             bindings = <
-            &trans &trans       &trans     &trans       &trans                                    /* */                                   &trans       &trans   &trans        &trans        &trans
-            &trans &trans       &trans     &trans       &trans        &trans                      /* */                      &trans       &trans       &trans   &trans        &trans        &trans
-            &trans &trans       &trans     &trans       &trans        &trans                      /* */                      &trans       &kp LA(LEFT) &kp UP   &kp LA(RIGHT) &trans        &trans
-            &trans &kp LCTRL    &kp LALT   &kp LCMD     &kp LSHFT     &trans                      /* */                      &kp LG(LEFT) &kp LEFT     &kp DOWN &kp RIGHT     &kp LG(RIGHT) &trans
-            &trans &kp LC(DOWN) &kp LC(UP) &kp LC(LEFT) &kp LC(RIGHT) &trans &trans &trans &trans /* */ &trans &trans &trans &trans       &trans       &trans   &trans        &trans        &trans
-            &trans &trans       &trans     &trans       &trans               &trans &trans &trans /* */ &trans &trans &trans              &trans       &trans   &trans        &trans        &trans
+            &trans &trans       &trans     &trans   &trans                                /* */                                   &trans       &trans   &trans        &trans        &trans
+            &trans &trans       &trans     &trans   &trans    &trans                      /* */                      &trans       &trans       &trans   &trans        &trans        &trans
+            &trans &trans       &trans     &trans   &trans    &trans                      /* */                      &trans       &kp LA(LEFT) &kp UP   &kp LA(RIGHT) &trans        &trans
+            &trans &kp LCTRL    &kp LALT   &kp LCMD &kp LSHFT &trans                      /* */                      &kp LG(LEFT) &kp LEFT     &kp DOWN &kp RIGHT     &kp LG(RIGHT) &trans
+            &trans &kp LC(DOWN) &kp LC(UP) &app_l   &app_r    &trans &trans &trans &trans /* */ &trans &trans &trans &trans       &trans       &trans   &trans        &trans        &trans
+            &trans &trans       &trans     &trans   &trans           &trans &trans &trans /* */ &trans &trans &trans              &trans       &trans   &trans        &trans        &trans
             >;
         };
 
@@ -163,17 +167,6 @@
             &trans &kp N0 &kp N4 &kp N5 &kp N6 &trans                      /* */                        &trans &trans    &trans    &trans   &trans   &trans
             &trans &kp N0 &kp N1 &kp N2 &kp N3 &trans &trans &trans &trans /* */ &trans &trans &trans   &trans &kp LSHFT &kp LCMD &kp LALT &kp LCTRL &trans
             &trans &trans &trans &trans &trans        &trans &trans &trans /* */ &trans &trans &kp LCMD        &trans    &trans    &trans   &trans   &trans
-            >;
-        };
-
-        func_layer {
-            bindings = <
-            &trans &trans    &trans   &trans   &trans                                  /* */                               &trans     &trans       &trans       &trans &trans
-            &trans &trans    &trans   &trans   &trans    &trans                        /* */                      &trans   &trans     &trans       &trans       &trans &trans
-            &trans &trans    &trans   &trans   &trans    &trans                        /* */                      &trans   &trans     &trans       &trans       &trans &trans
-            &trans &trans    &trans   &trans   &trans    &trans                        /* */                      &scr_rec &kp C_PP   &kp C_PREV   &kp C_NEXT   &trans &trans
-            &trans &kp LCTRL &kp LALT &kp LCMD &kp LSHFT &trans &trans   &trans &trans /* */ &trans &trans &trans &scr_cap &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &trans &trans
-            &trans &trans    &trans   &trans   &trans           &kp LCMD &trans &trans /* */ &trans &trans &trans          &trans     &trans       &trans       &trans &trans
             >;
         };
 
